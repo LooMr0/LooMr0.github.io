@@ -1,134 +1,55 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="John Doe">
-  <meta name="keywords" content>
-  <meta name="description" content>
-  <script id="hexo-configurations">
-  var CONFIG = {
-    root: '/',
-    theme: 'hexo-theme-lx',
-    version: '1.4.5',
-    localsearch:{
-      "enable": false,
-      "trigger": "auto",
-      "top_n_per_article": 1,
-      "unescape": false,
-      "preload": false
-      },
-    path: '-'
-  };
-</script>
+<html lang="zh-CN">
 
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/main.css">
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/jquery.jside.menu.js"></script>
-	<script>
-	$(document).ready(function(){
-	$(".menu-container").jSideMenu({
-	    jSidePosition: "position-right",
-	    jSideSticky: true,
-	    jSideSkin: "endless-river",
-	     });
-	}); 
-	</script>
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💗</title>
+    <meta name="keywords" content="💗">
+    <meta name="description" content="💗">
+    <link rel="stylesheet" href="./index/index.css">
+    <link rel="stylesheet" href="./APlayer/APlayer.min.css">
 </head>
-<body>
-<div id="page">
-<div id="lx-aside" style="background-image: url(/images/cover.jpg)">
-  <div class="overlay">
-  <div class="featured">
-    <div class="avatar"><a href="/"><img src="/images/person_1.jpg"></a></div>
-    <span>John Doe</span>
-    <h2>Hexo</h2>
-    <span>——</span>
-    
-  </div>
-  </div>
-</div>
-<div id="lx-main-content">
-  <div class="lx-post"> 
 
-  <div class="lx-entry padding">
-    <div>
-      <h2><a href="/2019/08/19/成长日记/">成長日記</a></h2>
-      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2019-08-19</span>
-      <p></p>
-    </div>
-  </div>
-  <div class="lx-entry padding">
-    <div>
-      <h2><a href="/2019/08/19/hello-world/">Hello World</a></h2>
-      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2019-08-19</span>
-      <p></p>
-    </div>
-  </div>
- 
-
-
-<footer>
-  <div>
-  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
-  </div>
-</footer>
-  </div>
-</div>
-</div>
-
-<button class="menu-trigger"></button>
-<div class="menu">
-  <div class="menu-head">
-    <span class="layer">
-      <div class="col">
-        <div class="row for-pic">
-          <div class="profile-pic">
-            <a href="/"><img src="/images/person_1.jpg" alt="John Doe"></a>
-          </div>
-        </div>
-        <div class="row for-name">
-          <p>John Doe</p>
-          <span class="tagline">Hello, World!</span>
-        </div>
-      </div>
-    </span>
-  </div>
-  <nav class="menu-container">
-  <ul class="menu-items">
-    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
-    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
-    <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-bookmark fa-fw"></i>页面</span>
-        <ul>
-          <li><a href="/guestbook">留言</a></li>
-        <li><a href="/about">关于</a></li>
-        </ul>
-    </li>
-    <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-link fa-fw"></i>友链</span>
-        <ul>
-          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
-        </ul>
-    </li>
-  </ul>
-  </nav>
-</div>
-
-<div class="gototop js-top">
-  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
-</div>
-<script src="/js/jquery.easing.min.js"></script>
-<script src="/js/jquery.waypoints.min.js"></script>
-<script src="/js/jquery.stellar.min.js"></script>
-<script src="/js/main.js"></script>
-
-
+<body onclick="initFun()">
+    <p class="love_you">💗</p>
+    <!-- 这里替换音乐 -->
+    <!-- <audio src="./wy.mp3" autoplay="autoplay" loop="loop" controls="controls"></audio> -->
+    <div id="player4"></div>
+	<script src="./APlayer/APlayer.min.js"></script>
+    <canvas id="lovexf"></canvas>
+    <script src="./index/index.js"></script>
+    <script>
+         var ap4 = new APlayer({
+            element: document.getElementById('player4'),
+            autoplay: true,
+            preload: 'auto',
+            showlrc: false,
+            mutex: true,
+            fixed: false,
+            theme: '#ad7a86',
+            music: [
+                {
+                    title: '唯一',
+                    author:'告五人',
+                    url: './index/wy.mp3',
+                    pic: './index/wy.jpg'
+                },{
+                    title: '枫',
+                    author:'周杰伦',
+                    url: './index/f.m4a',
+                    pic: './index/wy.jpg'
+                }
+            ]
+        });
+        function initFun(){
+            ap4.play()
+        }
+        document.body.addEventListener('ontouchstart', function(){
+            ap4.play()
+        }, false);
+    </script>
 </body>
+
 </html>
