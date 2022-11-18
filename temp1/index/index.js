@@ -269,7 +269,7 @@ var ParticlePool = (function () {
         t.getElementsByTagName("head")[0].appendChild(a)
     }
     function c() {
-        return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        return "hsla(0," + ~~(40 * Math.random + 60) + "%," + ~~(60 * Math.random + 20) + "%,1)"
     }
     var s = [];
     e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame ||

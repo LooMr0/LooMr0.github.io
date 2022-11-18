@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>💗</title>
+  <link rel="shortcut icon" href="../Arrow.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="../APlayer/APlayer.min.css">
+  <style>
+      * {
+          padding: 0;
+          margin: 0;
+      }
+      #player4{
+          z-index: 1;
+          position: absolute;
+          top: -1000px;
+          left: 0;
+          width: 100%;
+
+      }
+  </style>
+</head>
+<body>
+  <div id="player4"></div>
+<!-- partial:index.partial.html -->
+<!-- setup our canvas element -->
+<canvas id="canvas">Canvas is not supported in your browser.</canvas>
+<!-- partial -->
+  <script  src="./script.js"></script>
+  <script src="../APlayer/APlayer.min.js"></script>
+  <script>
+      var ap4 = new APlayer({
+          element: document.getElementById('player4'),
+          autoplay: true,
+          preload: 'auto',
+          showlrc: false,
+          mutex: true,
+          fixed: false,
+          theme: '#ad7a86',
+          music: [
+              {
+                  title: '唯一',
+                  author:'告五人',
+                  url: '../temp1/index/wy.mp3',
+                  pic: '../temp1/index/wy.jpg'
+              },{
+                  title: '枫',
+                  author:'周杰伦',
+                  url: '../temp1/index/f.m4a',
+                  pic: '../temp1/index/wy.jpg'
+              }
+          ]
+      });
+      function initFun(){
+          ap4.play()
+      }
+      document.body.addEventListener('ontouchstart', function(){
+          ap4.play()
+      }, false);
+  </script>
+</body>
+</html>

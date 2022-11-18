@@ -1,55 +1,86 @@
+<!--loading-->
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#303B4F">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="./enter/style.css">
+    <link rel="stylesheet" href="./temp3/style.css">
+    <link rel="shortcut icon" href="./Arrow.ico" type="image/x-icon">
     <title>💗</title>
-    <meta name="keywords" content="💗">
-    <meta name="description" content="💗">
-    <link rel="stylesheet" href="./index/index.css">
-    <link rel="stylesheet" href="./APlayer/APlayer.min.css">
+    <style>
+        .clickMe{
+            position: relative;
+            left: -40px;
+        }
+        .nintendo-switch{
+            z-index: 999;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #canvas{
+            z-index: 1;
+        }
+    </style>
 </head>
 
-<body onclick="initFun()">
-    <p class="love_you">💗</p>
-    <!-- 这里替换音乐 -->
-    <!-- <audio src="./wy.mp3" autoplay="autoplay" loop="loop" controls="controls"></audio> -->
-    <div id="player4"></div>
-	<script src="./APlayer/APlayer.min.js"></script>
-    <canvas id="lovexf"></canvas>
-    <script src="./index/index.js"></script>
-    <script>
-         var ap4 = new APlayer({
-            element: document.getElementById('player4'),
-            autoplay: true,
-            preload: 'auto',
-            showlrc: false,
-            mutex: true,
-            fixed: false,
-            theme: '#ad7a86',
-            music: [
-                {
-                    title: '唯一',
-                    author:'告五人',
-                    url: './index/wy.mp3',
-                    pic: './index/wy.jpg'
-                },{
-                    title: '枫',
-                    author:'周杰伦',
-                    url: './index/f.m4a',
-                    pic: './index/wy.jpg'
-                }
-            ]
-        });
-        function initFun(){
-            ap4.play()
-        }
-        document.body.addEventListener('ontouchstart', function(){
-            ap4.play()
-        }, false);
-    </script>
+<body>
+    <canvas id="canvas">Canvas is not supported in your browser.</canvas>
+    <input type="checkbox" id="screen" name="screen">
+    <main class="nintendo-switch">
+        <aside class="actions left">
+            <i class="minus">-</i>
+            <div class="analogic">
+                <div class="center-circle"></div>
+            </div>
+            <div class="buttons">
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+            </div>
+            <div class="square"></div>
+        </aside>
+        <label class="middle" for="screen">
+            <div class="screen" onclick="clickMeFun()">
+                <div class="glass"></div>
+                <strong class="clickMe">点我</strong>
+            </div>
+        </label>
+        <aside class="actions right">
+            <i class="plus">+</i>
+            <div class="analogic">
+                <div class="center-circle"></div>
+            </div>
+            <div class="buttons">
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+            </div>
+            <div class="circle"></div>
+        </aside>
+
+    </main>
+    <!-- partial -->
+    <script src="./script.js"></script>
+    <script src="./temp3/script.js"></script>
 </body>
+
+<script>
+    function clickMeFun(){
+        setTimeout(()=>{
+            // window.location.replace("./temp1/index.html")
+            window.location.href = "./temp2/index.html"
+        },2000)
+    }
+</script>
 
 </html>
