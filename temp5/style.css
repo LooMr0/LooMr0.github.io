@@ -6,3 +6,9 @@
   height: 100%;
   background: transparent;
 }
+body {
+  background: url(../../assets/2.png) no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+}
