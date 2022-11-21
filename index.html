@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./enter/style.css">
     <link rel="stylesheet" href="./temp3/style.css">
     <link rel="shortcut icon" href="./Arrow.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./APlayer/APlayer.min.css">
     <title>💗</title>
     <style>
         .clickMe{
@@ -28,10 +29,28 @@
         #canvas{
             z-index: 1;
         }
+        .viewIframe{
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 999;
+        }
+        #player4{
+            z-index: 1;
+            position: absolute;
+            top: -1000px;
+            left: 0;
+            width: 100%;
+        }
     </style>
 </head>
 
 <body>
+    <div id="player4"></div>
     <canvas id="canvas">Canvas is not supported in your browser.</canvas>
     <input type="checkbox" id="screen" name="screen">
     <main class="nintendo-switch">
@@ -69,16 +88,20 @@
         </aside>
 
     </main>
+    <iframe style="display: none;" class="viewIframe" src="./temp1/index.html" frameborder="0" width="100%" height="100%"></iframe>
     <!-- partial -->
     <script src="./script.js"></script>
     <script src="./temp3/script.js"></script>
+	<script src="./APlayer/APlayer.min.js"></script>
+    <script src="./music.js"></script>
 </body>
 
 <script>
     function clickMeFun(){
+        initFun();
         setTimeout(()=>{
-            window.location.replace("./temp5/index.html")
-            // window.location.href = "./temp2/index.html"
+            document.querySelector('.viewIframe').style.display = "block";
+            document.querySelector('.nintendo-switch').style.display = "none";
         },2000)
     }
 </script>
