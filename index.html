@@ -88,7 +88,7 @@
         </aside>
 
     </main>
-    <iframe style="display: none;" class="viewIframe" src="./temp1/index.html" frameborder="0" width="100%" height="100%"></iframe>
+    <iframe style="display: none;" class="viewIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
     <!-- partial -->
     <script src="./script.js"></script>
     <script src="./temp3/script.js"></script>
@@ -101,6 +101,7 @@
         initFun();
         setTimeout(()=>{
             document.querySelector('.viewIframe').style.display = "block";
+            document.querySelector('.viewIframe').src = "./temp1/index.html"
             document.querySelector('.nintendo-switch').style.display = "none";
         },2000)
     }
