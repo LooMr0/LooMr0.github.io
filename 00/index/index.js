@@ -183,7 +183,7 @@ var ParticlePool = (function () {
         context.closePath();
         // create the fill
         // context.fillStyle = '#c88ffe';
-        context.fillStyle = 'red';
+        context.fillStyle = '#ffc0cb';
         context.fill();
         // create the image
         var image = new Image();
@@ -269,7 +269,7 @@ var ParticlePool = (function () {
         t.getElementsByTagName("head")[0].appendChild(a)
     }
     function c() {
-        return "red"
+        return "#ffc0cb"
     }
     var s = [];
     e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame ||
