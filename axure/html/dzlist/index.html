@@ -210,6 +210,9 @@
                             @search="onSearch"
                             background="#e6e5e5"
                             placeholder="请输入搜索关键词">
+                            <template slot="action">
+                                <div @click="onSearch">搜索</div>
+                            </template>
                         </van-search>
                     </form>
                 </div>
@@ -249,7 +252,7 @@
     <div class="footer">
         <van-goods-action>
             <van-goods-action-button @click="showError" color="#3374ee" type="warning" text="设备数据"></van-goods-action-button>
-            <van-goods-action-button @click="showError" color="#07c160" type="danger" text="设备管理"></van-goods-action-button>
+            <van-goods-action-button @click="toDeviceMan" color="#07c160" type="danger" text="设备管理"></van-goods-action-button>
         </van-goods-action>
     </div>
 </div>
@@ -305,6 +308,12 @@
             },
             showError:function(){
                 this.$toast('暂未接入该页面功能');
+            },
+            toDeviceMan:function(){
+                pageTo({
+                    name:"设备管理",
+                    url:"../device/index.html"
+                })
             }
         }
     })

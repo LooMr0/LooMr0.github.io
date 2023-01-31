@@ -212,6 +212,9 @@
         .statutip i{
             transform: rotateZ(315deg);
         }
+        .blue-text{
+            color:#3374ee;
+        }
     </style>
 </head>
 <body>
@@ -265,8 +268,11 @@
                           name="控制密钥"
                           label="控制密钥"
                           placeholder="控制密钥"
-                          :rules="[{ required: true, message: '请填写控制密钥' }]"
-                        ></van-field>
+                          :rules="[{ required: true, message: '请填写控制密钥' }]">
+                          <template slot="right-icon">
+                            <van-icon class="blue-text" name="scan"></van-icon>
+                          </template>
+                        </van-field>
                     </van-form>
                 </van-cell-group>
                 <van-sticky :offset-top="40">
