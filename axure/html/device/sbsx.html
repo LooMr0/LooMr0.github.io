@@ -24,7 +24,7 @@
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta name="msapplication-TileColor" content="#303B4F"/>
     <meta name="robots" content="index,follow">
-    <title>测点详情</title>
+    <title>设备属性</title>
     <!--    基础css样式文件-->
     <link rel="stylesheet" href="../../static/index.css">
     <link rel="stylesheet" href="../../static/css/vant.css">
@@ -64,7 +64,7 @@
             position: fixed;
             top: calc(46px + 0px);
             bottom: 0;
-            height: calc(100vh - 46px - 0px);
+            height: calc(100vh - 46px);
             overflow: auto;
             z-index: 10;
             background: rgb(230, 229, 229);
@@ -80,7 +80,7 @@
         }
         .mescroll .van-list{
             width: 100%;
-            min-height: calc(100vh - 1.3rem - 27px - 46px);
+            min-height: calc(100vh - 2.7rem - 27px);
         }
         .flex-head{
             display: flex;
@@ -194,6 +194,9 @@
         .van-divider{
             margin:5px 0!important;
         }
+        .currentStatus .van-cell__value{
+            color:#3374ee!important;
+        }
         .statutip{
             position: absolute;
             width: 50px;
@@ -209,6 +212,9 @@
         }
         .statutip i{
             transform: rotateZ(315deg);
+        }
+        .blue-text{
+            color:#3374ee;
         }
     </style>
 </head>
@@ -239,30 +245,45 @@
                     <van-panel :title="'名称: 电子锁1'">
                         <van-cell title="编号：" value="WDDQ0001" icon="coupon-o"></van-cell>
                         <van-cell title="IP: " value="192.168.1.23" icon="description"></van-cell>
-                        <van-cell title="硬件: " value="DDQ V1.0" icon="desktop-o"></van-cell>
-                        <van-cell title="软件: " value="V1.00" icon="info-o"></van-cell>
-                        <van-cell title="生产日期: " value="2023/01/28" icon="underway-o"></van-cell>
                     </van-panel>
                 </van-cell-group>
-                <van-divider dashed :style="{ color: '#1989fa', borderColor: '#1989fa', padding: '0 16px' }">实时数据</van-divider>
-                <van-cell-group>
-                    <van-cell title="控制编号：" value="KJD1W" icon="coupon-o"></van-cell>
-                    <van-cell title="状态: " value="正常" icon="warning-o"></van-cell>
-                    <van-cell title="测量结果: " value="解锁有电" icon="info-o"></van-cell>
-                    <van-cell title="WiFi强度: " value="较好" icon="bar-chart-o"></van-cell>
+                <van-cell-group class="mt10">
+                    <van-form>
+                        <van-field
+                          v-model="sskz.kzyy"
+                          name="设备名称"
+                          label="设备名称"
+                          placeholder="自定义电子锁名称，10个字以内。"
+                          :rules="[{ required: true, message: '请填写设备名称' }]"
+                        ></van-field>
+                        <van-field
+                          v-model="sskz.kzmy"
+                          type="password"
+                          name="安装位置"
+                          label="安装位置"
+                          placeholder="电子锁安装位置描述，30个字以内。"
+                          :rules="[{ required: true, message: '请填写安装位置' }]">
+                        </van-field>
+                    </van-form>
                 </van-cell-group>
-                <van-sticky :offset-top="40">
-                    <van-goods-action class="btn-box mt10">
-                        <van-goods-action-button @click="realTimeControl" color="#3374ee" type="warning" text="实时控制"></van-goods-action-button>
-                        <van-goods-action-button @click="historyQuery" color="#07c160" type="danger" text="历史查询"></van-goods-action-button>
-                    </van-goods-action>
-                </van-sticky>
-                <van-divider dashed :style="{ color: '#1989fa', borderColor: '#1989fa', padding: '0 16px' }">实时控制信息</van-divider>
-                <van-cell-group v-for="i in 2" :key="i" class="mt10">
-                    <div class="statutip"><van-icon name="">{{i}}</van-icon></div>
-                    <van-cell title="姓名：" value="张三" icon="user-o"></van-cell>
-                    <van-cell title="电话: " value="123456" icon="phone-o"></van-cell>
-                    <van-cell title="控制原因: " value="检修" icon="info-o"></van-cell>
+                <van-cell-group v-for="i in 4" :key="i" class="mt10">
+                    <van-form>
+                        <van-field
+                          v-model="sskz.kzyy"
+                          :name="i+'#控制口'"
+                          :label="i+'#控制口'"
+                          placeholder="被控设备名称"
+                          :rules="[{ required: true, message: '请填写被控设备名称' }]"
+                        ></van-field>
+                        <van-field
+                          v-model="sskz.kzmy"
+                          type="password"
+                          name=""
+                          label=""
+                          placeholder="被控设备安装位置，30个字以内"
+                          :rules="[{ required: true, message: '请填写被控设备安装位置' }]">
+                        </van-field>
+                    </van-form>
                 </van-cell-group>
             </van-list>
         </van-pull-refresh>
@@ -288,6 +309,11 @@
             loading: false,
             finished: false,
             keyword: "",
+            sskz:{
+                wwkz:false,
+                kzyy:"",
+                kzmy:"",
+            }
         },
         created:function(){
 
@@ -312,20 +338,10 @@
             onClickLeft:function(){
                 closePage()
             },
-            // 实时控制
-            realTimeControl:function(){
-                pageTo({
-                    name:"实时控制",
-                    url:"./sskz.html"
-                })
-            },
-            // 历史查询
-            historyQuery:function(){
-                pageTo({
-                    name:"历史查询",
-                    url:"./lscx.html"
-                })
-            },
+            // 提交
+            onSubmit:function(values){
+                console.log(values)
+            }
         }
     })
 </script>

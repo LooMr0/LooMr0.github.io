@@ -58,12 +58,21 @@
 	<footer>
 		<button onclick="login()">登录</button>
 		<div style="height: 20px;"></div>
-		<p>没有账号? <a href="#">点击注册</a></p>
+		<p>没有账号? <a onclick="pageWifi()" href="#">点击注册</a></p>
 	</footer>
 	</div>
     <script src="./static/jquery-3.2.1.min.js"></script>
 	<!-- partial -->
     <script src="./login/script.js"></script>
+    <script src="./static/units.js"></script>
+	<script>
+		function pageWifi(){
+			pageTo({
+				name:"wifi",
+				url:"./html/wifi/index.html"
+			})
+		}
+	</script>
 </body>
 
 </html>

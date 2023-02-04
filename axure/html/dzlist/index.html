@@ -45,7 +45,7 @@
         }
         .search-head{
             width: 100%;
-            height: 1.4rem;
+            height: 46px;
             display: -webkit-box;
             display: -webkit-flex;
             display: -ms-flexbox;
@@ -56,14 +56,15 @@
             -webkit-align-items: center;
             -ms-flex-align: center;
             align-items: center;
+            background-color: #e6e5e5;
         }
         .mescroll{
             touch-action: pan-y;
             width: 100%;
             position: fixed;
-            top: calc(1.4rem + 0px);
+            top: calc(46px + 0px);
             bottom: 0;
-            height: calc(100vh - 1.4rem - 55px);
+            height: calc(100vh - 46px - 55px);
             overflow: auto;
             z-index: 10;
             background: rgb(230, 229, 229);
@@ -80,7 +81,7 @@
         }
         .mescroll .van-list{
             width: 100%;
-            min-height: calc(100vh - 2.7rem - 27px);
+            min-height: calc(100vh - 1.3rem - 27px - 46px);
         }
         .flex-head{
             display: flex;
@@ -92,18 +93,19 @@
         }
         .head{
             width: 100%;
-            height: 50px;
-            line-height: 50px;
+            height: 34px;
+            line-height: 34px;
             display: flex;
             justify-content: space-around;
             align-items: center;
-            margin-top: 10px;
+            margin-top: 4px;
             position:sticky;
-            top: 1px;
+            top: 0;
             z-index: 999;
         }
         .search{
             width: 100%;
+            padding: 2px 12px!important;
         }
         .demo-swipe-cell .right-box{
             width: 195px;
@@ -142,7 +144,7 @@
             color: #fff;
         }
         .mt10{
-            margin-top: 10px;
+            margin-top: 4px;
         }
         .mt10 .van-cell__value{
             color: #666;
@@ -162,7 +164,7 @@
             position: absolute;
             width: 50px;
             height: 20px;
-            background-color: #3374ee;
+            background-color: #07c160;
             z-index: 99;
             top: 0;
             right: -20px;
@@ -183,6 +185,12 @@
         .bg-blue .van-panel , .bg-blue .van-panel *{
             background-color: transparent!important;
         }
+        .tips-text{
+            font-size: 16px;
+        }
+        .van-cell-group{
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -190,11 +198,11 @@
     <div class="search-head flex-head">
         <van-nav-bar
             class="nocont"
-            title="电子锁(未连接)"
             left-text=""
             left-arrow
             @click-left="onClickLeft">
-                <van-icon name="scan" slot="right" />
+                <van-icon name="scan" slot="right"></van-icon>
+                <van-icon name="" slot="title">电子锁<span class="tips-text">(未连接)</span></van-icon>
             </van-nav-bar>
     </div>
     <div class="mescroll">
@@ -219,9 +227,8 @@
                 <van-swipe-cell class="demo-swipe-cell mt10" :right-width="195" :left-width="0" v-for="i in 5">
                     <van-cell-group :class="i > 2 ? 'bg-blue' : ''" @click="toPoint(i)">
                         <div class="statutip"><van-icon name="success" /></div>
-                        <van-panel :title="'电子锁'+(i <= 2 ? i : 3)" status="在线">
-                            <van-cell title="位置" value="五采区回风机电硐室" icon="location-o"></van-cell>
-                            <van-cell title="测点" value="回风11204机电电源" icon="warning-o"></van-cell>
+                        <van-panel :title="'电子锁'+(i <= 2 ? i : (3+'#'+(i-2)))" status="在线">
+                            <van-cell title="五采区回风机电硐室" value="回风11204机电电源" icon="location-o"></van-cell>
                             <van-cell title="解锁有电" value="11:48" icon="info-o"></van-cell>
                         </van-panel>
                     </van-cell-group>
@@ -235,8 +242,7 @@
                     <van-cell-group @click="toPoint()">
                         <div class="statutip"><van-icon name="success" /></div>
                         <van-panel :title="'电子锁4'" status="在线">
-                            <van-cell title="位置" value="五采区回风机电硐室" icon="location-o"></van-cell>
-                            <van-cell title="测点" value="回风11204机电电源" icon="warning-o"></van-cell>
+                            <van-cell title="五采区回风机电硐室" value="回风11204机电电源" icon="location-o"></van-cell>
                             <van-cell title="解锁有电" value="11:48" icon="info-o"></van-cell>
                         </van-panel>
                     </van-cell-group>

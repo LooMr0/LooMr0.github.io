@@ -24,7 +24,7 @@
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta name="msapplication-TileColor" content="#303B4F"/>
     <meta name="robots" content="index,follow">
-    <title>测点详情</title>
+    <title>设备管理</title>
     <!--    基础css样式文件-->
     <link rel="stylesheet" href="../../static/index.css">
     <link rel="stylesheet" href="../../static/css/vant.css">
@@ -45,7 +45,7 @@
         }
         .search-head{
             width: 100%;
-            height: 1.4rem;
+            height: 46px;
             display: -webkit-box;
             display: -webkit-flex;
             display: -ms-flexbox;
@@ -56,14 +56,15 @@
             -webkit-align-items: center;
             -ms-flex-align: center;
             align-items: center;
+            background-color: #e6e5e5;
         }
         .mescroll{
             touch-action: pan-y;
             width: 100%;
             position: fixed;
-            top: calc(1.4rem + 0px);
+            top: calc(46px + 0px);
             bottom: 0;
-            height: calc(100vh - 1.4rem - 0px);
+            height: calc(100vh - 46px);
             overflow: auto;
             z-index: 10;
             background: rgb(230, 229, 229);
@@ -79,7 +80,7 @@
         }
         .mescroll .van-list{
             width: 100%;
-            min-height: calc(100vh - 2.7rem - 27px);
+            min-height: calc(100vh - 1.3rem - 27px - 46px);
         }
         .flex-head{
             display: flex;
@@ -91,18 +92,22 @@
         }
         .head{
             width: 100%;
-            height: 50px;
-            line-height: 50px;
+            height: 34px;
+            line-height: 34px;
             display: flex;
             justify-content: space-around;
             align-items: center;
-            margin-top: 10px;
+            margin-top: 4px;
             position:sticky;
-            top: 1px;
+            top: 0;
             z-index: 999;
+        }
+        .van-cell-group{
+            overflow: hidden;
         }
         .search{
             width: 100%;
+            padding: 2px 12px!important;
         }
         .demo-swipe-cell .right-box{
             width: 130px;
@@ -141,7 +146,7 @@
             color: #fff;
         }
         .mt10{
-            margin-top: 10px;
+            margin-top: 4px;
             overflow: hidden;
         }
         .van-cell__value{
@@ -197,7 +202,7 @@
             position: absolute;
             width: 50px;
             height: 20px;
-            background-color: #3374ee;
+            background-color: #07c160;
             z-index: 99;
             top: 0;
             right: -20px;
@@ -322,13 +327,13 @@
                     url:"./sskz.html"
                 })
             },
-            // 历史查询
-            historyQuery:function(){
+            // 设备属性
+            toPoint:function(){
                 pageTo({
-                    name:"历史查询",
-                    url:"./lscx.html"
+                    name:"设备属性",
+                    url:"./sbsx.html"
                 })
-            },
+            }
         }
     })
 </script>
